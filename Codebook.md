@@ -3,12 +3,12 @@
 
 
 ## Subject
-	### Subject identifier
+	Subject identifier
 		1..30			Unique identifier of the subject who carried out the experiment
 
 
 ## Activity
-	### Activity undertaken for sensor readings
+	Activity undertaken for sensor readings
 		WALKING
 		WALKING_UPSTAIRS
 		WALKING_DOWNSTAIRS
@@ -18,7 +18,7 @@
 
 
 ## Variable
-	### Variable is derived from sensor signals (see Notes)
+	Variable is derived from sensor signals (see Notes)
 		Time.BodyAcc.Mean.X
 		Time.BodyAcc.Mean.Y
 		Time.BodyAcc.Mean.Z
@@ -88,7 +88,7 @@
 
 
 ## Average
-	### Sensor readings averaged by Subject, Activity and Variable
+	Sensor readings averaged by Subject, Activity and Variable
 		-0.9976661..0.9745087		Average sensor reading value
 
 
