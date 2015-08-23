@@ -8,7 +8,7 @@ To quote the site's abstract:
 
 >Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.
 
-The following steps were performed on the original data source (taken from the [Coursera project page](https://class.coursera.org/getdata-031/human_grading/view/courses/975115/assessments/3/submissions)):
+The following steps were performed on the original data source (taken from the [Coursera project page](https://class.coursera.org/getdata-031/human_grading/view/courses/975115/assessments/3/submissions)) to produce a [new data set](https://s3.amazonaws.com/coursera-uploads/user-a07d30466c3b025842de7e96/975115/asst-3/cd6f19b049a511e587f73d59c5a829d9.txt):
 
 1. Merges the training and the test sets to create one data set.
 
