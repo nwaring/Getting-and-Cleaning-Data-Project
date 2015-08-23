@@ -51,7 +51,7 @@ For each record in the dataset it is provided:
 
 The included R analysis [script](https://github.com/nwaring/Getting-and-Cleaning-Data-Project/blob/master/run_analysis.R) performs the following task: 
 
-###1. Include the required libraries
+####1. Include the required libraries
 
 ```
 library(data.table)
@@ -61,7 +61,7 @@ library(tidyr)
 The actual work of tidying the data relies heavily on the 'dplyr' and 'tidyr' libraries.
 
 
-###2. Set the working directory for all subsequent file reads and writes
+####2. Set the working directory for all subsequent file reads and writes
 
 ```
 setwd('~/data/UCI HAR Dataset/')
@@ -69,7 +69,7 @@ setwd('~/data/UCI HAR Dataset/')
 The purpose of this is to reduce the size of subsequent file paths and so enhancing code readability.
 
 
-###3. Define a helper function to read the three associated files for each data set type (train or test) and combine them into a single data frame:
+####3. Define a helper function to read the three associated files for each data set type (train or test) and combine them into a single data frame:
 
 ```
 load.data <- function(type, features) {
@@ -87,7 +87,7 @@ Note that the descriptive column names, 'features' are passed and assigned to th
 I decided to combine these steps into a function because they need to be repeated for the two different data sets (and supporting files) to be loaded.  Hence, code reuse, and not duplicating code were my main motivations.
 
 
-###4. Define a helper function to transform elements of a character vector
+####4. Define a helper function to transform elements of a character vector
 
 ```
 replace.all <- function(patt, repl, char.vec) {
@@ -98,7 +98,7 @@ replace.all <- function(patt, repl, char.vec) {
 This is used to 'clean up' the variable names (i.e. column headings) to make them more readable.  It is included purely to make the code more readable by abstracting away this descrete task into its own function.
 
 
-###5. Load the files containing feature names and activity names
+####5. Load the files containing feature names and activity names
 
 ```
 fnames <- read.csv('./features.txt', sep=' ', header=FALSE, stringsAsFactors=FALSE)$V2    # Feature names
@@ -108,7 +108,7 @@ The former is used in the previously defined function, 'load.data' to set the co
 The latter is used in next step to provide descriptive labels to the activity data.
 
 
-###6. Fulfill the first three requirements from the project instructions
+####6. Fulfill the first three requirements from the project instructions
 
 ```
 all.data <- bind_rows(load.data('train', fnames), load.data('test', fnames)) %>%   # "1. Merges the training and the test sets to create one data set"
@@ -122,7 +122,7 @@ c. A call to 'mutate()' overwrites the original 'Activity' numeric value with it
 d. These data transformations are finally stored in the variable 'all.data'.
 
 
-###7. Fulfill the fourth requirement from the project instructions
+####7. Fulfill the fourth requirement from the project instructions
 
 ```
 patt <- c('^t', '^f', '\\.\\.', 'mean', 'std')     # patterns to match
@@ -133,7 +133,7 @@ As the original feature (i.e. column) names have already been assigned, the only
 Character vectors of search patterns and replacement text are defined and passed to the 'replace.all()' function, along with the existing variable names (i.e. column names) which are in turn replaced by the result of the call.
 
 
-###8. Fulfill the fifth requirement from the project instructions
+####8. Fulfill the fifth requirement from the project instructions
 
 ```
 tidy.data <- all.data %>%
@@ -146,7 +146,7 @@ A (narrow) 'tidy' data set is created by separating out each individual reading 
 The tidy data set is then passed to 'group_by()' and 'summarise()' to create a new column, Average, that is the mean of all readings grouped by Subject and Activity for each unique Variable.
 
 
-## Importing The Tidy Data File Into R
+##Importing The Tidy Data File Into R
 
 The tidy data file was created using the R command:
 ```
